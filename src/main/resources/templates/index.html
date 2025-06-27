@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Letter Generator Pro</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ff66cc, #9933ff);
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, #ff66cc, #9933ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 2.5em;
+        }
+        h2 {
+            text-align: center;
+            color: #4b0082;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            background: linear-gradient(to right, #9933ff, #ff66cc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        button:hover {
+            background: linear-gradient(to right, #ff66cc, #9933ff);
+        }
+    </style>
+</head>
+<body>
+
+<h3 style="text-align: center; font-size: 1.2em; color: white; margin-top: 10px;">
+    Welcome to <span style="font-weight: bold;">ULetters.Ai</span>
+</h3>
+
+<div class="container">
+    <h1>📝 Letter Generator Pro</h1>
+    <h2>Transform your concerns into professionally crafted letters</h2>
+
+    <form action="/generate" method="post" th:object="${complaintRequest}">
+        <label for="problemDescription">Describe Your Problem</label>
+        <textarea id="problemDescription" th:field="*{problemDescription}" rows="6" required
+                  placeholder="Explain your issue in detail. Include relevant dates, names, and specific concerns..."></textarea>
+
+        <label for="tone">Choose Your Tone</label>
+        <select id="tone" th:field="*{tone}" required>
+            <option value="" disabled selected>Select the tone for your letter</option>
+            <option value="formal">Formal</option>
+            <option value="informal">Informal</option>
+        </select>
+
+
+        <button type="submit">🚀 Generate Letter</button>
+    </form>
+</div>
+
+<footer style="text-align: center; font-size: 0.8em; color: white; margin-top: 30px;">
+    Developed by Umang Bishya
+</footer>
+
+</body>
+</html>

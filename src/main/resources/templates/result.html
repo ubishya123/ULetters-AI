@@ -3,6 +3,8 @@
 <head>
     <title>Generated Letter</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,13 +13,17 @@
             padding: 20px;
         }
         .container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+
         h2 {
             text-align: center;
             color: #4b0082;
@@ -44,6 +50,22 @@
         a:hover {
             background: linear-gradient(to right, #ff66cc, #9933ff);
         }
+
+        @media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    textarea {
+        font-size: 1em;
+    }
+
+    button, a {
+        font-size: 1em;
+        padding: 12px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -58,8 +80,15 @@
 
     <div class="btn-container">
         <button class="btn" onclick="copyText()">📋 Copy Text</button>
-        <a href="/" class="btn">🔁 Generate Another</a>
+
+        <form action="/download-pdf" method="post" style="display: inline;">
+            <input type="hidden" name="letter" th:value="${letter}" />
+            <button type="submit">⬇️ Download as PDF</button>
+        </form>
+
     </div>
+    <a href="/" class="btn">🔁 Generate Another</a>
+
 </div>
 <script>
     function copyText() {

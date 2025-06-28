@@ -10,6 +10,8 @@ LetterGenerator.ai is a smart AI-powered web application that helps users genera
 - 📡 Powered by Google's **Gemini AI API**
 - 🎨 Stylish, responsive UI for all devices
 - 🔒 Easy to plug in your own Gemini API key
+- 💾 Download generated letter as a **PDF**
+
 
 ---
 
@@ -20,6 +22,8 @@ LetterGenerator.ai is a smart AI-powered web application that helps users genera
 | Backend     | Spring Boot (Java)          |
 | Frontend    | Thymeleaf + HTML/CSS        |
 | AI Engine   | Gemini 1.5 Flash API (Google) |
+| PDF Export  | OpenPDF (Java PDF library)  |
+
 
 ---
 

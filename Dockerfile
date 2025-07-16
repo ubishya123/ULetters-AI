@@ -11,7 +11,7 @@ RUN ./mvnw clean package -DskipTests
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 # Copy the built JAR file from the builder stage
-COPY --from=builder /app/target/ULetters-AI-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/target/*.jar app.jar
 # Expose the port Spring Boot runs on
 EXPOSE 8080
 # Command to run the application
